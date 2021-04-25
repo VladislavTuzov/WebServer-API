@@ -465,9 +465,9 @@ def api_documentation():
 #     return render_template('class_list.html')
 
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
     # main()
-    print('426')
-    db_session.global_init("db/blogs.db")
-    app.register_blueprint(news_api.blueprint)
-    app.run(debug=True)
+print('426')
+db_session.global_init("db/blogs.db")
+app.register_blueprint(news_api.blueprint)
+# app.run(debug=True)
