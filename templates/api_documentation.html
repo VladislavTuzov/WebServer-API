@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h5>API Документация</h5>
+<p>Возможности API</p>
+<ul class="list-group">
+  <li class="list-group-item">Получение расписания</li>
+</ul>
+<p>Для получения расписание, необходимо выполнить POST запрос</p>
+<p>И передать Json список с данными аргументами</p>
+<ul class="list-group">
+  <li class="list-group-item">В 'name_klass' передать название класса</li>
+  <li class="list-group-item">В 'shool_id' передать id школы в котором находится класс</li>
+  <li class="list-group-item">В 'date' передать дату на которую необходимо расписание в формате  'год-месяц-день'</li>
+  <li class="list-group-item">Так же в 'data' можно передать в место даты 'all', тогда будет возвращено всё имеещееся расписание</li>
+</ul>
+<p>Пример запроса на Python</p>
+<p><pre>
+<c style="color: red;">from</c> requests import <c style="color: red;">post</c> 
+
+<c style="color: #1ABFD5;">print</c>(<c style="color: #1ABFD5;">post</c>(<c style="color: #C3CA1E;">'http://localhost:5000/api/sheduele'</c>,
+           <c style="color: orange;">json</c><c style="color: red;">=</c>{<c style="color: #C3CA1E;">'name_klass'</c>: <c style="color: #C3CA1E;">'1б'</c>, 
+                 <c style="color: #C3CA1E;">'shool_id'</c>: 2, 
+                 <c style="color: #C3CA1E;">'date'</c>: <c style="color: #C3CA1E;">'2021-04-16'</c>}).<c style="color: #1ABFD5;">json</c>())
+</pre></p>
+{% endblock %}

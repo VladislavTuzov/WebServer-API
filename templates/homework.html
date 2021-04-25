@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{%block homework%}
+<h5 style="padding-left: 15px">Домашнее задание</h5>
+{% for item in homework %}
+	<div style="padding-left: 30px" class="col-md6 border rounded">
+		<h6>{{item.lesson}} - {{item.task}}</h6>
+	</div>
+{% endfor %}
+{%endblock%}

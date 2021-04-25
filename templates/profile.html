@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if current_user.roles != 'director' %}
+<a href="/iniquary" style="background: #BDBDBD; margin: 2px; padding: 2px; color: #FD3535;">получение директора школы</a>
+{% endif %}
+<div style="padding-left: 15px">
+{%if current_user.photo%}
+	{{current_user.photo}}
+{%else%}
+	<img src='static/image/user.png' width="180" height="180">
+{%endif%}
+<h4>{{current_user.name}} {{current_user.apprentice}} {{current_user.patronymic}}</h4>
+<h4>Электронная почта: {{current_user.email}}</h4>
+{% if current_user.dob %}
+	<h4>Дата рождения: {{current_user.dob}}</h4>
+{% else %}
+<h4>Дата рождения: <a class="btn" href="add_dob">Указать дату рождения</a></h4>
+{% endif %}
+{% if current_user.roles %}
+<h4>Права на сайте: {{current_user.roles}}</h4>
+{% endif %}
+<h5>id аккаунта: {{current_user.id}}</h5>
+</div>
+{% endblock %}
