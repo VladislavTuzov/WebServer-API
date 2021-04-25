@@ -29,5 +29,6 @@ def global_init(db_file):
 
 
 def create_session() -> Session:
+    print('123')
     global __factory
     return __factory()
