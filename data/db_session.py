@@ -20,6 +20,7 @@ def global_init(db_file):
     conn_str = f'postgresql://ddmyogxcmmxlhu:f2854ed65cd3f6a727117213fcb378d7291aa7ee1ed2e32dce4178bac122ab29@ec2-54-155-208-5.eu-west-1.compute.amazonaws.com:5432/dfeuh5cnmhl9ag'
     print(f"Подключение к базе данных по адресу {conn_str}")
 
+    print('123')
     engine = sa.create_engine(conn_str, echo=False)
     __factory = orm.sessionmaker(bind=engine)
 
@@ -29,6 +30,5 @@ def global_init(db_file):
 
 
 def create_session() -> Session:
-    print('123')
     global __factory
     return __factory()
