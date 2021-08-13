@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block title %}Корзина{% endblock %}
+{% block content %}
+{% block link %}<link rel="stylesheet" href="static/css/order.css">{% endblock %}
+<div class="container container-order">
+        <h1 class="title">
+            Оформление заказа
+        </h1>
+
+        <div class="row row-top-table row-table d-flex">
+            <div class="col-lg-8">
+                <div class="table-text">Товар</div>
+            </div>
+            <div class="col-lg-4">
+                <div class="table-text">Итог</div>
+            </div>
+        </div>
+        <div class="container-goods">
+
+        </div>
+        <form action=""  class="form-container">
+            <div class="row row-delivery">
+                <div class="col-lg-12">
+                    <div class="table-text">
+                        Доставка
+                    </div>
+                    <div class="delivery-select">
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="row total-row">
+                <div class="col-lg-8">
+                    <div class="total-text">Итого</div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="total-sum total-text"></div>
+                </div>
+            </div>
+            <div class="row row-form">
+                <div class="col-lg-12">
+                    <div class="title-form">
+                        Ваши данные
+                    </div>
+                    <div class="form-block">
+                        <div>
+                            <div>
+                                <label for="name">Имя <abbr class="required" title="обязательно">*</abbr></label>
+                                <input type="text" required class="order-input" id="name">
+                            </div>
+                            <div>
+                                <label for="tel">Телефон <abbr class="required" title="обязательно">*</abbr></label>
+                                <input type="tel" placeholder="+7(___) ___-__-__" data-mask="+7 () --" required class="order-input" id="tel">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="name">Email</label>
+                                <input placeholder="Мы вышлем подробности заказа" type="email" class="order-input" id="email">
+                            </div>
+                            <div>
+                                <label for="tel">Адрес <abbr class="required" title="обязательно">*</abbr></label>
+                                <input type="text" required class="order-input" id="address">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row row-form row-time">
+                <div class="col-lg-6">
+                    <div class="title-form">
+                        Время
+                    </div>
+
+                    <div class="form-block time-block">
+                        <div class="time-select">
+                            <div>
+                                <input type="radio" id="first_time" name="execution_time" value="fast" checked="checked">
+                                <label for="first_time">Как можно скорее</label>
+                            </div>
+
+                            <div>
+                                <input class="time-target" type="radio" id="sec_time" name="execution_time" value="at_time">
+                                <label for="sec_time">Ко времени</label>
+                            </div>
+                        </div>
+                        <span class="timepicker-block">
+
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="title-form">
+                        Примечание к заказу
+                    </div>
+                    <div class="form-block">
+                        <textarea id="order-note" name="" cols="60" rows="4"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-form row-payment">
+                <div class="col-lg-12">
+                    <div class="title-form">
+                        Способ оплаты
+                    </div>
+                    <div class="payment-select">
+                        <div>
+                            <input type="radio" id="pay_money" name="payment_method" value="cash" checked="checked">
+                            <label for="pay_money">Наличными</label>
+                        </div>
+
+                        <div>
+                            <input class="time-target" type="radio" id="pay_card" name="payment_method" value="card">
+                            <label for="pay_card">Пластиковой картой</label>
+                        </div>
+                        <div class="bonus_pay">
+
+                        </div>
+                        <div class="submit_block">
+                            <span>
+                            <input id="agree" type="checkbox" name="agreement" class="check__box">
+                
+                                <label class="label_agree" for="agree">
+                                    Я прочитал(а) и соглашаюсь с правилами сайта <a href="">правила и условия </a> *
+                                </label>
+                            </span>
+                            <div>
+                                <button class="submit_order " aria-disabled="true" type="submit">Подтвердить заказ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+{% block script %}<script src="static/js/Order.js"></script>{% endblock %}

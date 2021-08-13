@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Акции{% endblock %}
+{% block content %}
+<div class="container container-big">
+	<h1 class="name_cont">Акции</h1>
+	<h2 class="name_cont">Скидка 15% на День Рождения!</h2>
+	<div class="row spec__card__main">
+		<div class="col-lg-4">
+			<h6 class="name_cont">Акция действует:</h6>
+			<ul class="scli">
+				<li>только день в день при предоставление администратору/курьеру, ксерокопии или фото документа удостоверяющего дату рождения (паспорт, свидетельство о рождении, водительское удостоверение, медицинскую книжку и т.а.)</li>
+				<li>только день в день</li>
+				<li>при заказе на самовывоз от 800 ₽</li>
+				<li>при заказе на доставку от минимальной суммы в зависимости от район, но не менее 850 ₽</li>
+				<li>данная акция не суммируется с другими акциями и личными скидками</li>
+			</ul>
+		</div>
+		<div class="col-lg-8">
+			<img src="{{ url_for('static', filename='image/7124847a-c56a-4c32-b2c0-70cf2ac541b0.png') }}" alt="">
+		</div>
+	</div>
+	<div class="row" style="justify-content: center; padding-top: 25px;">
+		<hr style="width: 150px; border: solid 2px black; border-radius: 1px;">
+	</div>
+	<h2 class="name_cont">Скидка 15% на годовщину свадьбы!</h2>
+	<div class="row spec__card__main">
+		<div class="col-lg-8">
+			<img src="{{ url_for('static', filename='image/godovshina.jpg') }}" alt="">
+		</div>
+		<div class="col-lg-4">
+			<h6 class="name_cont">Акция действует:</h6>
+			<ul class="scli">
+				<li>только день в день</li>
+				<li>только при предъявлении «Свидетельства о браке»</li>
+				<li>не суммируется с другими акциями</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row" style="justify-content: center; padding-top: 25px;">
+		<hr style="width: 150px; border: solid 2px black; border-radius: 1px;">
+	</div>
+	<h2 class="name_cont">Пицца в подарок!</h2>
+	<div class="row spec__card__main">
+		<div class="col-lg-4">
+			<h6 class="name_cont">Акция действует:</h6>
+			<h6 class="name_cont">При заказе двух больших пицц маленькая пицца до 300₽ идет в подарок.</h6>
+			<ul class="scli">
+				<li>Акция действует с понедельника по четверг.</li>
+				<li>В акции не участвует Большая пицца: «Маргарита» и Маленькие пиццы: «Фиш», «Дары моря», «Мясная», «Груша дор Блю».</li>
+			</ul>
+			<div class="row" style="justify-content: center; padding-top: 25px;">
+				<hr style="width: 150px; border: solid 2px black; border-radius: 1px;">
+			</div>
+			<h6 class="name_cont">При заказе трёх больших пицц – маленькая пицца, стоимостью до 300₽ в подарок.</h6>
+			<ul class="scli">
+				<li>Акция действует с пятницы по воскресенье.</li>
+				<li>В акции не участвует Большая пицца: «Маргарита» и Маленькие пиццы: «Фиш», «Дары моря», «Мясная», «Груша дор Блю».</li>
+			</ul>
+			<h6 class="name_cont">* Не суммируется с личными скидками и другими акциями, акция не работает в праздничные дни, подробности акции уточняйте у оператора.</h6>
+		</div>
+		<div class="col-lg-8">
+			<img src="{{ url_for('static', filename='image/pickup.jpg') }}" alt="">
+		</div>
+	</div>
+</div>
+{% endblock %}

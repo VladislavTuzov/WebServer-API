@@ -1,0 +1,42 @@
+{% extends "base_admin.html" %}
+{% block title %}Добавление Купонов{% endblock %}
+{% block content %}
+<div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>Комбинация</h3>
+                <form action="" class="block-list">
+                    <div class="list-wrapper">
+                        <div class="row-select d-flex">
+                            <select class="product-select" >
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="select-add">
+                        +
+                    </div>
+                </form>
+                <hr>
+                <h3>Результат</h3>
+                <form action="" class="block-list-result">
+                    <div class="result-list-wrapper">
+                        <div class="row-select d-flex">
+                            <select class="bonus-select" >
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="select-add-bonus">
+                        +
+                    </div>
+                </form>
+                <div class="btn-sub">
+                    Отправить
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/combinations.js') }}"></script>
+{% endblock %}

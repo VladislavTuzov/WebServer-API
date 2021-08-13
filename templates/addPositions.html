@@ -1,0 +1,95 @@
+{% extends "base_admin.html" %}
+{% block title %}Добавление позиций{% endblock %}
+{% block content %}
+<div class="container-form">
+	<div class="box-form">
+		<p>
+			<h1>Добавление позиций</h1>
+		</p>
+	</div>
+	<div class="box-form">
+		<form action="/control/add-posit" method="post" enctype=multipart/form-data>
+			{{ formAdd.hidden_tag() }}
+			<p>
+				{{ formAdd.name.label }}<br>
+                {{ formAdd.name(class="form-input") }}<br>
+                {% for error in formAdd.name.errors %}
+                    <p class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </p>
+                {% endfor %}
+			</p>
+			<p>
+				{{ formAdd.description.label }}<br>
+                {{ formAdd.description(class="form-input") }}<br>
+                {% for error in formAdd.description.errors %}
+                    <p class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </p>
+                {% endfor %}
+			</p>
+			<p>
+				{{ formAdd.price.label }}<br>
+                {{ formAdd.price(class="form-input") }}<br>
+                {% for error in formAdd.price.errors %}
+                    <p class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </p>
+                {% endfor %}
+			</p>
+			<p>
+				{{ formAdd.weight.label }}<br>
+                {{ formAdd.weight(class="form-input") }}<br>
+                {% for error in formAdd.weight.errors %}
+                    <p class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </p>
+                {% endfor %}
+			</p>
+            <p>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="kategori">
+                  <option selected>выберите категорию</option>
+                  {% for i in kateg %}
+                      <option value="{{ i.id }}">{{ i.name }}</option>
+                  {% endfor %}
+                </select>
+            </p>
+			<p>
+                {{ formAdd.image(class="form-input") }}<br>
+                {% for error in formAdd.image.errors %}
+                    <p class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </p>
+                {% endfor %}
+			</p>
+			<p>
+				{{ formAdd.submit(type="submit", class="submit-btn") }}
+            {{message}}
+			</p>
+		</form>
+	</div>
+    <div class="container-form-del">
+        {% for j in formdel %}
+        <div class="cont__row__del">
+            <div class="del__info__cont">
+                <img src="static/Image_positions/{{ j.photo }}" alt="">
+                <div class="inf__del__posit">
+                    <p>{{ j.name }}</p>
+                    <p>{{ j.structure }}</p>
+                    <p>цена {{ j.price }} р</p>
+                    <p>вес позиции {{ j.weight }} г</p>
+                    {% for i in kateg %}
+                        {% if i.id == j.kategory %}
+                            <p>категория {{ i.name }}</p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="del__info__act">
+                <a href="/control/del-posit/{{ j.id }}">удалить</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

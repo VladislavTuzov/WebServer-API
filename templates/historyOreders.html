@@ -1,0 +1,32 @@
+{% extends "base_admin.html" %}
+{% block title %}История заказов{% endblock %}
+{% block content %}
+	<div class="container">
+		<div class="list-group">
+		{% for i in orders %}
+		<div style="margin-top: 20px;">
+				<a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+				<div class="d-flex w-100 justify-content-between">
+					<h5 class="mb-1">{{ i.name_klient }}, внутренний id: {{ i.back_id }}</h5>
+					<small>{{ i.times_orders }}</small>
+				</div>
+				<p class="mb-1">{{ i.structure }}</p>
+				<p class="mb-1">{{ i.order_note }}</p>
+				<small>{{ i.phone_number }} {{ i.payment_method }} {{ i.adress }}, Время: {% if i.execution_speed == 'fast' %} быстро {% else %} {{ i.execution_speed }} {% endif %}</small>
+				</a>
+			</div>
+		  {% endfor %}
+		</div>
+	</div>
+	<!-- <script>
+		setTimeout(() => location.reload(), 30000)
+	</script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+
+	<!-- <script type="text/javascript" charset="utf-8">
+	    var socket = io();
+	    socket.on('json', function() {
+	        socket.emit('json', {data: 'I\'m connected!'});
+	    });
+	</script> -->
+{% endblock %}

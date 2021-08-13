@@ -1,0 +1,79 @@
+{% extends "base_admin.html" %}
+{% block title %}Добавление Купонов{% endblock %}
+{% block content %}
+<div class="container-form">
+    <div class="box-form">
+        <p>
+            <h1>Добавление купонов</h1>
+        </p>
+    </div>
+    <div class="box-form">
+        <form action="/control/add-coupon" method="POST">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.coupon.label }}<br>
+                {{ form.coupon(class="form-input") }}<br>
+                {% for error in form.coupon.errors %}
+                    <p class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </p>
+                {% endfor %}
+            </p>
+            <button type="button" class="btn btn-success" onclick="random_coupon()">Сгенерировать код</button>
+            <p>
+                {{ form.discount.label }}<br>
+                {{ form.discount(class="form-input",  required=False) }}<br>
+                {% for error in form.discount.errors %}
+                    <p class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </p>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.description.label }}<br>
+                {{ form.description(class="form-input",  required=False) }}<br>
+                {% for error in form.description.errors %}
+                    <p class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </p>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.id_klient.label }}<br>
+                {{ form.id_klient(class="form-input",  required=False) }}<br>
+                {% for error in form.id_klient.errors %}
+                    <p class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </p>
+                {% endfor %}
+            </p>
+
+            {{ form.submit(type="submit", class="submit-btn") }}
+            {{message}}
+        </form>
+    </div>
+    <ul class="list-group" style="width: 100%;">
+        {% for i in coup %}
+          <li class="list-group-item">купон:{{ i.coupon }} описание купона:{{ i.description }} скидка:{{ i.discount }} id клинта:{{ i.id_klient }}<a href="/control/del-coupon/{{ i.id }}">Удалить купон</a></li>
+        {% endfor %}
+    </ul>
+</div>
+<script>
+	const url = 'control/random_coup'
+	async function random_coupon(){
+		try {
+			const response = await fetch(url, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					'mode':"no-cors"
+				}
+			})
+			let json = await response.json();
+			console.log(json)
+			$("#coupon").val(json.cod)
+		} catch (error) {
+			console.error('Ошибка:', error);}
+	}
+</script>
+{% endblock %}
