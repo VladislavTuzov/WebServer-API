@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Страница не найдена{% endblock %}
+{% block link %}<link rel="stylesheet" href="static/css/err404.css">{% endblock %}
+{% block content %}
+<section class="section-bad" ">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="bad-title">
+					Ошибка 404
+				</h1>
+				<p class="bad-text">
+					Запрашиваемая страница не найдена.
+				</p>
+				<p class="bad-alt">
+					Вы можете вернуться на <a href="/">
+						главную
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+	
+{% endblock %}
