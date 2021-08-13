@@ -451,8 +451,8 @@ def tankyou():
     return render_template('tankyou.html')
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+main()
 
 # db_session.global_init("db/db_kafe.db")
 # app.register_blueprint(bluepr.blueprint)
