@@ -1,0 +1,17 @@
+{
+	"lang": "Russian",
+	"name": "RedFish",
+	"short_name": "RedFish",
+	"theme_color": "#EEEEEE",
+	"background_color": "#f3f3f3",
+	"display": "standalone",
+	"orientation": "portrait",
+	"scope": "/",
+	"start_url": "/",
+	"description": "Red Fish - семейное кафе и пиццерия с бесплатной доставки в череповце",
+	"icons": [{
+		"src": "/statuc/image/logo.png",
+		"type": "image/png",
+		"sizes": "3638x2062"
+		}]
+}
