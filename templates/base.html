@@ -1,0 +1,408 @@
+<!doctype html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<title>{% block title %}{% endblock %}</title>
+	{% block link %}{% endblock %}
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome/css/font-awesome.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/preloader.css') }}">
+	<link rel="manifest" href="{{ url_for('static', filename='info/manifest.json') }}">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
+</head>
+<body>
+	<div class="preloader">
+        <div class="preloader__row">
+            <div class="preloader__item"></div>
+            <div class="preloader__item"></div>
+        </div>
+    </div>
+	<div class="modal-promo">
+		<div class="modal-body">
+			<div class="modal-content">
+				<div class="close-block-modal d-flex">
+					<i class="bi bi-x close-modal-promo"></i>
+				</div>
+				<div class="promo-info-text">
+					<p class="text-promo-info">
+
+					</p>
+					<p class="text-promo-info-bottom" id="description-promo">
+
+					</p>
+					<p class="text-promo-info-bottom " id="discount-promo">
+
+					</p>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="mobile-menu">
+		<div class="menu-content">
+			<div class="content-menu-top">
+				<div class="content-logo-close">
+					<img src="{{ url_for('static', filename='image/logo.png') }}" width="140" alt="">
+					<i class="bi bi-x close-menu"></i>
+				</div>
+
+				<div class="mobile-phone">
+					600-645
+				</div>
+				<div class="mobile-text-time">
+					<i class="bi bi-clock"></i>
+					<p>
+						с 11:00 до 23:00
+						без перерыва и выходных
+					</p>
+				</div>
+				<form action="" class="promo-mobile promo-object">
+					<input id="input-mobile-promo" type="text" placeholder="Промокод">
+					<button class="submit-promo-mobile"><i class="bi bi-arrow-right"></i></button>
+				</form>
+			</div>
+			<div class="mobile-nav">
+				<ul>
+					<li class="mobile-nav-item"><a href="/#rolli">РОЛЛЫ</a></li>
+					<li class="mobile-nav-item"><a href="/kategor/1">ПИЦЦА</a></li>
+					<li class="mobile-nav-item"><a href="/#gor_rol">Горячие роллы </a></li>
+					<li class="mobile-nav-item"><a href="/#zap_rol">ЗАПЕЧЁННЫЕ РОЛЛЫ</a></li>
+					<li class="mobile-nav-item"><a href="/kategor/5">ВОКИ</a></li>
+					<li class="mobile-nav-item"><a href="/kategor/6">СЕТЫ</a></li>
+					<li class="mobile-nav-item"><a href="/kategor/7">САЛАТЫ</a></li>
+					<!-- <li class="mobile-nav-item"><a href="/kategor/10">СУПЫ</a></li> -->
+					<li class="mobile-nav-item"><a href="/kategor/11">НАПИТКИ</a></li>
+					<li class="mobile-nav-item"><a href="/kategor/9">ЗАКУСКИ</a></li>
+					<li class="mobile-nav-item"><a href="/kategor/8">ДЕСЕРТЫ</a></li>
+				</ul>
+			</div>
+			<div class="content-menu-bottom">
+				<div class="geo-content">
+					<i class="bi bi-geo-alt"></i>
+					<p>
+						г.Череповец ул. Максима Горького д.47
+					</p>
+				</div>
+				<div class="info-nav-content-mobile">
+					<ul>
+						<li class="info-nav-mobile"><a href="">Акции</a></li>
+						<li class="info-nav-mobile"><a href="">Доставка и оплата</a></li>
+						<li class="info-nav-mobile"><a href="">Контакты</a></li>
+					</ul>
+				</div>
+				<div class="social-links-mobile">
+					<!-- <a href=""><i class="bi bi-facebook"></i></a> -->
+					<a href="https://vk.com/redfish35"><i class="fa fa-vk" aria-hidden="true"></i></a>
+					<a href="https://www.instagram.com/red_fish_che/"><i class="bi bi-instagram"></i></a>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="header-mobile">
+
+		<div class="block-mobile-header">
+			<div class="logo-mobile">
+				<a href="/">
+					<img src="{{ url_for('static', filename='image/logo.png') }}" width="100" alt="">
+				</a>
+			</div>
+			<div class="buttons-header-mob d-flex">
+				<div>
+					<a href="/personal-area" class="login-link-item">
+						<i class="bi bi-box-arrow-in-left"></i>
+					</a>
+				</div>
+
+				<i class="bi bi-list open-burger"></i>
+
+			</div>
+
+		</div>
+	</div>
+	<div class="mobile-card">
+		<a href="/basket">
+				<div class="card-basket">
+					<div class="mobile-quatity">
+						0
+					</div>
+					<i class="bi bi-cart4"></i>
+					<div class="mobile-sum">
+						0 ₽
+					</div>
+				</div>
+		</a>
+	</div>
+	<header>
+		<div class="header-top">
+			<div class="container container-big">
+				<!-- <div class="row d-flex header-top-row">
+					<div class="col-lg-2">
+						<p class="header__info-top">
+							Пицца, Суши, Супы
+						</p>
+					</div>
+					<div class="col-lg-4">
+						<div class="nav-header-top">
+							<ul >
+								<li class="nav-item"><a href="">Контакты</a></li>
+								<li class="nav-item"><a href="">Доставка и оплата</a></li>
+								<li class="nav-item"><a href="">Контакты</a></li>
+							</ul>
+						</div>
+					</div>
+				</div> -->
+			</div>
+		</div>
+		<div class="header-main">
+			<div class="container container-super">
+					<div class="row d-flex main-row">
+						<div class="col-lg-8 col-main">
+							<div class="header-main-content d-flex">
+								<div class="main-content-item">
+									<a href="/">
+										<img src="{{ url_for('static', filename='image/logo.png') }}" class="logo" alt="">
+									</a>
+								</div>
+								<div class="content-phone">
+									<a href="tel:600-645">600-645</a>
+								</div>
+								<div class="time-work">
+									<i class="bi bi-clock"></i>
+									<p>
+										с 11:00 до 23:00
+										без перерыва и выходных
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 client-col">
+							<div class="client-card">
+								<form action="" class="promo-form promo-object">
+									<div class="promo-block">
+										<input id="input-promo" type="text" placeholder="Промокод">
+										<button class="submit-promo" type="submit"><i class="bi bi-arrow-right"></i></button>
+									</div>
+								</form>
+								<div class="basket">
+
+									<a href="/basket" class="basket-link">
+										<i class="bi bi-cart4"></i>
+									</a>
+									<div class="quatity">
+										0
+									</div>
+								</div>
+								<div class="goods-sum">
+									<h2 class="goods-sum-text">
+										0 ₽
+									</h2>
+								</div>
+								<div class="login-link">
+									<a href="/personal-area" class="login-link-item">
+										<i class="bi bi-box-arrow-in-left"></i>
+									</a>
+								</div>
+								<!-- <div class="stock-link" >
+									<img src="./image/sale.svg" alt="">
+									<a href="">
+									Акции
+									</a>
+								</div> -->
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+		<div class="header-nav-goods">
+			<ul class="d-flex">
+				<li>
+					<a href="#">Роллы</a>
+					<ul class="drop-menu-rolls drop-menu">
+						<li><a href="/#rolli">Роллы</a></li>
+						<li><a href="/#gor_rol">Горячие роллы</a></li>
+						<li><a href="/#zap_rol">Запечённые роллы</a></li>
+					</ul>
+				</li>
+				<li><a href="/kategor/1">Пицца</a></li>
+				<li><a href="/kategor/5">Воки</a></li>
+				<li><a href="/kategor/6">Сеты</a></li>
+				<li><a href="/kategor/7">Салаты</a></li>
+				<!-- <li><a href="/kategor/10">Супы</a></li> -->
+				<li><a href="/kategor/11">Напитки</a></li>
+				<li><a href="/kategor/9">Закуски</a></li>
+				<li><a href="/kategor/8">Десерты</a></li>
+				<!-- <li><a href="">Супы</a>
+					<ul class="drop-menu-gunk drop-menu">
+						<li><a href="">Спайси</a></li>
+
+					</ul>
+				</li> -->
+				<!-- <li><a href="">Напитки</a></li> -->
+				<!-- <li><a href="">Салаты и закуски</a></li> -->
+			</ul>
+		</div>
+	</header>
+	<main>
+		{% block content %}{% endblock %}
+	</main>
+	<footer>
+		<div class="container container-big">
+			<div class="row">
+				<a href="/">
+					<img id="logo__footer" src="{{ url_for('static', filename='image/logo.png') }}" alt="Наше лого">
+				</a>
+			</div>
+			<div class="row footer_row_main" >
+				<div class="col-lg-4 footr__main">
+					<div class="footer__menu__block__mein">
+						<div class="footer__menu__block">
+							<p class="footer__menu"><a href="/">Роллы</a></p>
+							<p class="footer__menu"><a href="/kategor/1">Пицца</a></p>
+							<p class="footer__menu"><a href="/kategor/5">Воки</a></p>
+							<p class="footer__menu"><a href="/kategor/6">Сеты</a></p>
+							<p class="footer__menu"><a href="/kategor/7">Салаты</a></p>
+						</div>
+						<div class="footer__menu__block">
+							<!-- <p class="footer__menu"><a href="/kategor/8">Супы</a></p> -->
+							<p class="footer__menu"><a href="/kategor/11">Напитки</a></p>
+							<p class="footer__menu"><a href="/kategor/9">Закуски</a></p>
+							<p class="footer__menu"><a href="/kategor/8">Десерты</a></p>
+						</div>
+					</div>
+					<!-- <div id="footer__phone_block">
+						<a id="footer__phone" href="tel:600-645">600-645</a>
+					</div>
+					<p class="footer__email">
+						<a href="mailto:RedFish@yandex.ru"><i class="bi bi-envelope"></i>RedFish@yandex.ru</a>
+					</p>
+					<div class="office__mode">
+						<i class="bi bi-clock"></i>
+						<p>
+							с 11:00 до 23:00<br>
+							без перерывов и выходных
+						</p>
+					</div>
+					<div class="office__address">
+						<i class="bi bi-geo-alt"></i>
+						<p>г. Череповец, ул. Максима Горького, 43</p>
+					</div>
+					<div class="footer__text">
+						<p>Red Fish - бесплатная доставка в Череповце</p>
+					</div> -->
+				</div>
+				<div class="col-lg-8 mbg">
+					<div class="row row__com">
+						<div class="col-lg-4 footer_a">
+							<div class="footer_a_block">
+								<nav>
+									<ul>
+										<li><a href="/delivery">Доставка и оплата</a></li>
+										<li><a href="/specials">Акции</a></li>
+										<li><a href="/control">Контроль качества</a></li>
+										<li><a href="/job">Вакансии</a></li>
+									</ul>
+								</nav>
+								<nav>
+									<ul class="ul_footer_in">
+										<li><a href="/contacts">Контакты</a></li>
+										<li><a href="/privacy-policy">Политика конфиденциальности</a></li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+						<div class="col-lg-4 footer__in">
+							<div class="row">
+								<div id="footer__phone_block">
+									<a id="footer__phone" href="tel:600-645">600-645</a>
+								</div>
+								<p class="footer__email">
+									<a href="mailto:RedFish@yandex.ru"><i class="bi bi-envelope"></i>RedFish@yandex.ru</a>
+								</p>
+								<div class="office__mode">
+									<i class="bi bi-clock"></i>
+									<p>
+										с 11:00 до 23:00<br>
+										без перерывов и выходных
+									</p>
+								</div>
+								<div class="office__address">
+									<i class="bi bi-geo-alt"></i>
+									<p>г. Череповец, ул. Максима Горького, 43</p>
+								</div>
+								<div class="footer__text">
+									<p>Red Fish - бесплатная доставка в Череповце</p>
+								</div>
+								
+							</div>
+							<div class="row">
+								<nav>
+									<ul class="soc">
+										<!-- <li>
+											<a href=""><i class="bi bi-facebook"></i></a>
+										</li> -->
+										<li>
+											<a href="https://vk.com/redfish35" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a>
+										</li>
+										<li>
+											<a href="https://www.instagram.com/red_fish_che/" target="_blank"><i class="bi bi-instagram"></i></a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row footer_row_two">
+				<div class="col-lg-4">
+					<p>© 2021 Red Fish</p>
+					<p><a class="made_TikSoft" href="https://vk.com/tiksoft" target="_blank">Сделано в TikSoft</a></p>
+				</div>
+				<div class="col-lg-4">
+					<nav>
+						<ul class="soc lt">
+							<li><i class="fas fa-money-bill"></i></li>
+							<li><i class="fa fa-cc-visa"></i></li>
+							<li><i class="fa fa-cc-mastercard"></i></li>
+							<!-- <li><i class="fa fa-cc-jcb"></i></li> -->
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+<!-- <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script> -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.maskedinput.min.js') }}"></script>
+<script>
+	if (navigator.serviceWorker.controller) {
+	  console.log('[PWA Builder] active service worker found, no need to register')
+	} else {
+	  navigator.serviceWorker.register("{{ url_for('static', filename='js/sw.js') }}", {
+	    scope: './'
+	  }).then(function(reg) {
+	    console.log('Service worker has been registered for scope:'+ reg.scope);
+	  });
+	}
+</script>
+<script src="{{ url_for('static', filename='js/Coupon.js') }}"></script>
+<script src="{{ url_for('static', filename='js/BasketStateInfo.js') }}"></script>
+<script>
+	$(window).on('load', function () {
+    $('.preloader').fadeOut().end().delay(400).fadeOut();
+});
+</script>
+{% block script %}{% endblock %}
+</html>
