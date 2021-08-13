@@ -75,7 +75,7 @@ def main():
     application.register_blueprint(bluepr.blueprint)
     # app.run(debug=True, port='6784', threaded=True)
     # socketio.run(app)
-    application.run(debug=True, host='0.0.0.0', port='6784', threaded=True)
+#     application.run(debug=True, host='0.0.0.0', port='6784', threaded=True)
 
 
 @application.route('/admins-cont')
